@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+	<title>R3V3NG3 CHROMA · AR</title>
+	<meta name="theme-color" content="#000000">
+	<link rel="icon" type="image/png" href="assets/img/logo-negro.png">
+	<link rel="stylesheet" href="css/style.css">
+
+	<script type="importmap">
+	{
+		"imports": {
+			"three": "./js/vendor/three.compat.js",
+			"three/addons/": "./js/vendor/addons/",
+			"mindar-image-three": "./js/vendor/mindar/mindar-image-three.prod.js"
+		}
+	}
+	</script>
+</head>
+
+<body>
+
+	<!-- cámara + escena 3D -->
+	<div id="escena" class="escena"></div>
+
+	<!-- interfaz AR (visible después de iniciar) -->
+	<div id="hud" hidden>
+		<img class="hud-logo" src="assets/img/logo-blanco.png" alt="R3V3NG3">
+		<a class="salir" href="index.html" id="salir">Salir</a>
+
+		<button class="sonido-btn" id="sonido" aria-label="Silenciar">
+			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+				<path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/>
+				<path class="on" d="M16 8.5c1.2 1 1.8 2.2 1.8 3.5s-.6 2.5-1.8 3.5M18.5 6c2 1.6 3 3.6 3 6s-1 4.4-3 6"/>
+				<path class="off" d="M16 9l6 6M22 9l-6 6" style="display:none"/>
+			</svg>
+		</button>
+
+		<div class="cambio-color">
+			<div class="cambio-color__titulo">Color<br>change.</div>
+			<div class="muestras" id="muestras"></div>
+		</div>
+
+		<div class="buscando" id="buscando">
+			<div class="buscando__marco">
+				<span class="buscando__texto">APUNTA A LA IMAGEN</span>
+			</div>
+		</div>
+
+		<div class="aviso" id="aviso"></div>
+
+		<nav class="info-botones">
+			<button class="info-btn" data-dialogo="colores"><small>01</small>Colores</button>
+			<button class="info-btn" data-dialogo="materiales"><small>02</small>Materiales</button>
+			<button class="info-btn" data-dialogo="descripcion"><small>03</small>Descripción</button>
+		</nav>
+	</div>
+
+	<!-- pantalla de inicio con la línea gráfica -->
+	<section class="portada papel" id="portada">
+		<div class="portada__cabecera">
+			<a href="index.html">← VOLVER</a>
+			<span>R3V3NG3 ARCHIVE, 2026<br>UPDATE: AR</span>
+		</div>
+
+		<div class="portada__centro">
+			<img class="portada__wordmark" src="assets/img/wordmark-negro.png" alt="r3v3nge">
+			<h1 class="portada__titulo">CHROMA.</h1>
+			<span class="portada__modo">MODO · REALIDAD AUMENTADA</span>
+			<p class="portada__texto">Apunta la cámara a la imagen de la caja R3V3NG3. La zapatilla aparecerá sobre ella: gírala con el dedo, cambia su color y conoce sus detalles.</p>
+		</div>
+
+		<div class="portada__pie">
+			<div class="barra-progreso"><span id="progreso"></span></div>
+			<button class="btn" id="iniciar" disabled>Cargando…</button>
+			<span class="portada__nota">Se necesita permiso de cámara · Sube el volumen</span>
+		</div>
+	</section>
+
+	<script type="module" src="js/ar.js"></script>
+</body>
+
+</html>

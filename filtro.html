@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+	<title>R3V3NG3 CHROMA · Filtro</title>
+	<meta name="theme-color" content="#000000">
+	<link rel="icon" type="image/png" href="assets/img/logo-negro.png">
+	<link rel="stylesheet" href="css/style.css">
+
+	<script type="importmap">
+	{
+		"imports": {
+			"three": "./js/vendor/three.compat.js",
+			"three/addons/": "./js/vendor/addons/",
+			"mindar-face-three": "./js/vendor/mindar/mindar-face-three.prod.js"
+		}
+	}
+	</script>
+</head>
+
+<body>
+
+	<!-- cámara + escena 3D -->
+	<div id="escena" class="escena"></div>
+
+	<!-- interfaz AR (visible después de iniciar) -->
+	<div id="hud" hidden>
+		<img class="hud-logo" src="assets/img/logo-blanco.png" alt="R3V3NG3">
+		<a class="salir" href="index.html" id="salir">Salir</a>
+
+		<button class="sonido-btn" id="sonido" aria-label="Silenciar">
+			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+				<path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/>
+				<path class="on" d="M16 8.5c1.2 1 1.8 2.2 1.8 3.5s-.6 2.5-1.8 3.5M18.5 6c2 1.6 3 3.6 3 6s-1 4.4-3 6"/>
+				<path class="off" d="M16 9l6 6M22 9l-6 6" style="display:none"/>
+			</svg>
+		</button>
+
+		<span class="etiqueta-modo">FILTRO · R3V3NG3</span>
+
+		<div class="buscando" id="buscando">
+			<div class="buscando__marco buscando__marco--cara">
+				<span class="buscando__texto">MUESTRA TU CARA</span>
+			</div>
+		</div>
+
+		<div class="aviso" id="aviso"></div>
+
+		<nav class="info-botones info-botones--filtro">
+			<button class="info-btn" id="foto"><small>CAPTURA</small>Foto</button>
+			<button class="info-btn" id="producto"><small>INFO</small>Producto</button>
+		</nav>
+	</div>
+
+	<!-- pantalla de inicio con la línea gráfica -->
+	<section class="portada papel" id="portada">
+		<div class="portada__cabecera">
+			<a href="index.html">← VOLVER</a>
+			<span>R3V3NG3 ARCHIVE, 2026<br>UPDATE: FILTRO</span>
+		</div>
+
+		<div class="portada__centro">
+			<img class="portada__wordmark" src="assets/img/wordmark-negro.png" alt="r3v3nge">
+			<h1 class="portada__titulo">CHROMA.</h1>
+			<span class="portada__modo">MODO · FILTRO FACIAL</span>
+			<p class="portada__texto">Ponte la máscara del archivo. Se activa la cámara frontal: mira de frente al celular y la máscara R3V3NG3 seguirá cada movimiento de tu cara.</p>
+		</div>
+
+		<div class="portada__pie">
+			<div class="barra-progreso"><span id="progreso"></span></div>
+			<button class="btn" id="iniciar" disabled>Cargando…</button>
+			<span class="portada__nota">Se necesita permiso de cámara · Sube el volumen</span>
+		</div>
+	</section>
+
+	<script type="module" src="js/filtro.js"></script>
+</body>
+
+</html>

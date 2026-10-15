@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<title>R3V3NG3 CHROMA</title>
+	<meta name="description" content="R3V3NG3 CHROMA — calzado urbano experimental que cambia de color. Pruébalo en realidad aumentada.">
+	<meta name="theme-color" content="#e4e4e2">
+	<link rel="icon" type="image/png" href="assets/img/logo-negro.png">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="papel">
+
+	<div class="app papel">
+
+		<header class="topbar">
+			<button class="icono" aria-label="Menú">
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+			</button>
+			<button class="icono" aria-label="Buscar">
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>
+			</button>
+			<img class="logo" src="assets/img/logo-negro.png" alt="R3V3NG3">
+			<span></span>
+			<button class="icono" aria-label="Cuenta">
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>
+			</button>
+		</header>
+
+		<main>
+			<section class="producto">
+				<div class="producto__foto">
+					<img src="assets/img/zapato.jpg" alt="Zapatilla R3V3NG3 CHROMA">
+				</div>
+
+				<nav class="modos" aria-label="Modos">
+					<button class="modo modo--color" id="btn-color">
+						<span class="modo__caja" aria-hidden="true"></span>
+						COLOR
+					</button>
+					<a class="modo" href="ar.html">
+						<span class="modo__caja" aria-hidden="true">
+							<!-- zapatilla high-top -->
+							<svg viewBox="0 0 48 48" fill="#6b0606" stroke="#000" stroke-width="1.6" stroke-linejoin="round">
+								<path d="M15 6h11l1 15c4 2 10 4 15 6 3 1 4 4 3 7l-1 3H5l1-5 2-8 2-6 2-8 3-4z" fill="#c45a5a"/>
+								<path d="M5 37h40v4H5z" fill="#6b0606"/>
+								<path d="M17 14h8M17 18h9M18 22h9" fill="none" stroke="#fff" stroke-width="2"/>
+							</svg>
+						</span>
+						AR
+					</a>
+					<a class="modo" href="filtro.html">
+						<span class="modo__caja" aria-hidden="true">
+							<!-- máscara -->
+							<svg viewBox="0 0 48 48" fill="none" stroke="#000" stroke-width="2">
+								<path d="M24 5c9 0 14 6 14 15 0 11-6 23-14 23S10 31 10 20C10 11 15 5 24 5z" fill="#fff"/>
+								<path d="M15 21c2-2 5-2 7 0-2 2-5 2-7 0zM26 21c2-2 5-2 7 0-2 2-5 2-7 0z" fill="#000"/>
+								<path d="M20 33c2 1.5 6 1.5 8 0" />
+							</svg>
+						</span>
+						FILTRO
+					</a>
+				</nav>
+			</section>
+
+			<div class="puntos" aria-hidden="true">
+				<button class="activo"></button><button></button><button></button><button></button><button></button>
+			</div>
+
+			<section class="ficha">
+				<p class="ficha__marca">R3V3NG3.</p>
+				<h1 class="ficha__nombre">CHROMA.</h1>
+				<p>R3V3NGE CHROMA es un concepto de calzado urbano experimental que permite modificar su apariencia cromática mediante un sistema electrónico integrado en la estructura del producto. La zapatilla presenta una silueta voluminosa y futurista, construida a partir de diferentes paneles y materiales que permiten generar distintas configuraciones visuales.</p>
+				<p>El producto busca convertir el calzado en una pieza adaptable, donde el usuario pueda modificar su apariencia sin cambiar de zapatillas.</p>
+
+				<div class="ficha__acciones">
+					<a class="btn" href="ar.html">Ver en AR</a>
+					<a class="btn btn--linea" href="filtro.html">Filtro</a>
+				</div>
+				<div class="ficha__acciones">
+					<button class="btn btn--linea" id="btn-materiales">Materiales</button>
+					<button class="btn btn--linea" id="btn-descripcion">Descripción</button>
+				</div>
+			</section>
+		</main>
+
+		<footer class="pie">
+			<img src="assets/img/wordmark-negro.png" alt="r3v3nge">
+			<span>ARCHIVE · 2026</span>
+		</footer>
+	</div>
+
+	<script type="module">
+		import { openDialog } from './js/producto.js';
+		import { unlock, sfxAbrir, sfxCerrar } from './js/sound.js';
+
+		const abrir = (tipo) => {
+			unlock();
+			sfxAbrir();
+			openDialog(tipo, { onClose: sfxCerrar });
+		};
+
+		document.getElementById('btn-color').addEventListener('click', () => abrir('colores'));
+		document.getElementById('btn-materiales').addEventListener('click', () => abrir('materiales'));
+		document.getElementById('btn-descripcion').addEventListener('click', () => abrir('descripcion'));
+	</script>
+</body>
+
+</html>
