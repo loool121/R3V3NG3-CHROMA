@@ -38,7 +38,35 @@
 			</svg>
 		</button>
 
-		<span class="etiqueta-modo">FILTRO · R3V3NG3</span>
+		<button class="sonido-btn ayuda-btn" id="ayuda" aria-label="Gestos">
+			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+				<path d="M9.2 9a3 3 0 1 1 4.3 2.7c-.9.4-1.5 1.2-1.5 2.2v.6"/><circle cx="12" cy="18" r=".6" fill="currentColor"/>
+			</svg>
+		</button>
+
+		<span class="etiqueta-modo" id="etiqueta">FILTRO · R3V3NG3</span>
+		<span class="rec" id="rec" hidden><i></i>REC <span>00:00</span></span>
+
+		<div class="cambio-color">
+			<div class="cambio-color__titulo">Color<br>change.</div>
+			<div class="muestras" id="muestras"></div>
+		</div>
+
+		<div class="gestos" id="gestos">
+			<div class="gestos__titulo">GESTOS · R3V3NG3</div>
+			<div class="gesto" data-gesto="boca">
+				<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><circle cx="16" cy="16" r="13"/><circle cx="11" cy="12" r="1.5" fill="currentColor"/><circle cx="21" cy="12" r="1.5" fill="currentColor"/><ellipse cx="16" cy="21.5" rx="4" ry="4.5" fill="currentColor"/></svg>
+				<div><b>Abre la boca</b><span>Rugido y ráfaga de logos</span></div>
+			</div>
+			<div class="gesto" data-gesto="ojos">
+				<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><circle cx="16" cy="16" r="13"/><path d="M8.5 12.5c1.5 1.5 3.5 1.5 5 0M18.5 12.5c1.5 1.5 3.5 1.5 5 0"/><path d="M12 21.5h8"/></svg>
+				<div><b>Cierra los ojos</b><span>1 segundo · ojos de sangre</span></div>
+			</div>
+			<div class="gesto" data-gesto="giro">
+				<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 13a11 11 0 0 1 20 0"/><path d="m22.5 9.5 3.5 3.5 3-4"/><circle cx="16" cy="20" r="7"/></svg>
+				<div><b>Gira la cabeza</b><span>Cambia el color</span></div>
+			</div>
+		</div>
 
 		<div class="buscando" id="buscando">
 			<div class="buscando__marco buscando__marco--cara">
@@ -49,8 +77,10 @@
 		<div class="aviso" id="aviso"></div>
 
 		<nav class="info-botones info-botones--filtro">
-			<button class="info-btn" id="foto"><small>CAPTURA</small>Foto</button>
-			<button class="info-btn" id="producto"><small>INFO</small>Producto</button>
+			<button class="info-btn" id="foto"><small>01</small><b>Foto</b></button>
+			<button class="info-btn" id="video"><small>02</small><b>Video</b></button>
+			<button class="info-btn" id="archivo"><small>03</small><b>Archivo</b></button>
+			<button class="info-btn" id="producto"><small>04</small><b>Info</b></button>
 		</nav>
 	</div>
 
@@ -65,7 +95,7 @@
 			<img class="portada__wordmark" src="assets/img/wordmark-negro.png" alt="r3v3nge">
 			<h1 class="portada__titulo">CHROMA.</h1>
 			<span class="portada__modo">MODO · FILTRO FACIAL</span>
-			<p class="portada__texto">Ponte la máscara del archivo. Se activa la cámara frontal: mira de frente al celular y la máscara R3V3NG3 seguirá cada movimiento de tu cara.</p>
+			<p class="portada__texto">Ponte la máscara del archivo. Usa tu cara para controlarla: abre la boca, cierra los ojos o gira la cabeza para cambiar su color. La CHROMA orbita a tu alrededor.</p>
 		</div>
 
 		<div class="portada__pie">
